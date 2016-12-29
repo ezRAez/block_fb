@@ -8,9 +8,9 @@ website_list = ["www.facebook.com", "facebook.com"]
 
 while True:
     tdy = dt.now()
-    if (dt(tdy.year, tdy.month, tdy.day, 8) < dt.now() < dt(tdy.year, tdy.month, tdy.day, 18)):
+    if dt(tdy.year, tdy.month, tdy.day, 8) < dt.now() < dt(tdy.year, tdy.month, tdy.day, 18):
         print("Working Hours...")
-        with open(hosts_test, "r+") as file:
+        with open(hosts_path, "r+") as file:
             content = file.read()
             for website in website_list:
                 if website in content:
@@ -19,7 +19,7 @@ while True:
                     file.write(redirect + " " + website + "\n")
     else:
         print("Party Hours!!!")
-        with open(hosts_test, "r+") as file:
+        with open(hosts_path, "r+") as file:
             content = file.readlines()
             file.seek(0)
             for line in content:
